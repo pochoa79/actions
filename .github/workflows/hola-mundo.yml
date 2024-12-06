@@ -31,5 +31,5 @@ jobs:
       # Paso 4: Ejecutar el programa principal (opcional)
       - name: Ejecutar programa principal
         run: |
-          java -cp build Main
+          java -cp build HolaMundo
 
