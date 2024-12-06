@@ -8,7 +8,7 @@ public class HolaMundo {
         // Si no se encuentra, establece un valor por defecto
         nombre = Optional.ofNullable(nombre).orElse("Usuario");
 
-        // Imprime el mensaje mi primera prueba
+        // Imprime el mensaje mi primera 
         System.out.println("¡Hola, " + nombre + " desde GitHub!"); 
     }
 }
