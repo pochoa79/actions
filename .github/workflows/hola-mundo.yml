@@ -1,5 +1,5 @@
-name: ejecuccion Java
-run-name: Compilación completa de Java
+name: Aprendiendo GitHub Actions
+run-name: ¡Estoy aprendiendo GitHub Actions!
 on:
   push:
     branches:
