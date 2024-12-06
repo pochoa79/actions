@@ -9,6 +9,6 @@ public class HolaMundo {
         nombre = Optional.ofNullable(nombre).orElse("Usuario");
 
         // Imprime el mensaje
-        System.out.println("¡Hola, " + nombre + " desde GitHub!");
+        System.out.println("¡Hola, " + nombre + " desde GitHub!"); 
     }
 }
