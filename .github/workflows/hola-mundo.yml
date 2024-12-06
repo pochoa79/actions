@@ -1,9 +1,9 @@
-name: Compilar y Ejecutar Java
+name: ejecuccion Java
 run-name: Compilación completa de Java
 on:
   push:
     branches:
-      - java
+      - actions
 
 jobs:
   build-java:
