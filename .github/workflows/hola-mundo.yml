@@ -1,13 +1,35 @@
-name: Aprendiendo GitHub Actions
-run-name: ¡Estoy aprendiendo GitHub Actions!
-on: [push]
+name: Compilar y Ejecutar Java
+run-name: Compilación completa de Java
+on:
+  push:
+    branches:
+      - java
+
 jobs:
-  hola-mundo:
+  build-java:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      # Paso 1: Checkout del repositorio
+      - name: Checkout del repositorio
         uses: actions/checkout@v3
-      - name: Definir variable
-        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
-      - name: Correr script
-        run: java HolaMundo.java
+
+      # Paso 2: Configurar Java
+      - name: Configurar Java 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      # Paso 3: Buscar y compilar todos los archivos Java
+      - name: Compilar todos los archivos Java
+        run: |
+          mkdir -p build
+          find . -name "*.java" > sources.txt
+          javac @sources.txt -d build
+
+      # Paso 4: Ejecutar el programa principal (opcional)
+      - name: Ejecutar programa principal
+        run: |
+          java -cp build Main
+
