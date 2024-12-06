@@ -1,10 +1,6 @@
 name: Aprendiendo GitHub Actions
 run-name: ¡Estoy aprendiendo GitHub Actions!
-on:
-  push:
-    branches:
-      - actions
-
+on: [push]
 jobs:
   build-java:
     runs-on: ubuntu-latest
