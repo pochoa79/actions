@@ -1,6 +1,6 @@
 import java.util.Optional;
 
-public class HolaDesdeGitHub {
+public class HolaMundo {
     public static void main(String[] args) {
         // Obtiene la variable de entorno "USERNAME"
         String nombre = System.getenv("USERNAME");
