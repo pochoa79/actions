@@ -6,11 +6,11 @@ on:
       edad:
         description: 'Edad'
         required: true
-        type: integer
+        type: number
       nombre:
-        description: 'Tu nombre'
+        description: 'Pablo'
         required: true
-        default: 'Juan'
+        default: 'Pablo'
         type: string
 jobs:
   mayor:
