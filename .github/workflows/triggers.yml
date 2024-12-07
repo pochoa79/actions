@@ -1,0 +1,82 @@
+name: Triggers
+run-name: ¡Estoy aprendiendo a usar diferentes Triggers!
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - '**.java'
+  issues:
+    types:
+      - labeled
+  workflow_dispatch:
+    inputs:
+      lenguaje_favorito:
+        description: 'Lenguaje favorito'
+        default: Java
+        required: true
+        type: choice
+        options:
+        - Java        
+      nombre:
+        description: 'Pablo Ochoa'
+        required: true
+        default: Pablo
+        type: string
+  schedule:
+    - cron:  '15 22 * * *'
+jobs:
+  hola-mundo-manual:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Definir nombre
+        run: echo "USERNAME=${{ inputs.nombre }}" >> $GITHUB_ENV
+      - name: Definir lenguaje
+        run: echo "LANGUAGE=${{ inputs.lenguaje_favorito }}" >> $GITHUB_ENV
+      # Paso 2: Configurar Java
+      - name: Configurar Java 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      # Paso 3: Buscar y compilar todos los archivos Java
+      - name: Compilar todos los archivos Java
+        run: |
+          mkdir -p build
+          find . -name "*.java" > sources.txt
+          javac @sources.txt -d build
+
+      # Paso 4: Ejecutar el programa principal (opcional)
+      - name: Ejecutar programa principal
+        run: |
+          java -cp build HolaMundo
+  hola-mundo:
+    if: ${{ github.event_name != 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Definir variable
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+      # Paso 2: Configurar Java
+      - name: Configurar Java 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      # Paso 3: Buscar y compilar todos los archivos Java
+      - name: Compilar todos los archivos Java
+        run: |
+          mkdir -p build
+          find . -name "*.java" > sources.txt
+          javac @sources.txt -d build
+
+      # Paso 4: Ejecutar el programa principal (opcional)
+      - name: Ejecutar programa principal
+        run: |
+          java -cp build HolaMundo
