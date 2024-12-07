@@ -14,8 +14,8 @@ on:
   workflow_dispatch:
     inputs:
       lenguaje_favorito:
-        description: 'Lenguaje favorito'
-        default: Java
+        description: 'Java'
+        default: 'Java'
         required: true
         type: choice
         options:
@@ -23,7 +23,7 @@ on:
       nombre:
         description: 'Pablo Ochoa'
         required: true
-        default: Pablo
+        default: 'Pablo Ochoa'
         type: string
   schedule:
     - cron:  '15 22 * * *'

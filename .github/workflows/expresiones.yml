@@ -8,9 +8,9 @@ on:
         required: true
         type: number
       nombre:
-        description: 'Tu nombre'
+        description: 'Pablo'
         required: true
-        default: 'Juan'
+        default: 'Pablo'
         type: string
 jobs:
   mayor:
