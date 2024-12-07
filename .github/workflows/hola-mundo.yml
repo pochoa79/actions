@@ -6,9 +6,8 @@ on:
       - main
 
 jobs:
-  build-java:
+  hola-mundo:
     runs-on: ubuntu-latest
-
     steps:
       # Paso 1: Checkout del repositorio
       - name: Checkout del repositorio
