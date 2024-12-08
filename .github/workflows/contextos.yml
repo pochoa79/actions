@@ -1,5 +1,3 @@
-name: Contexto
-run-name: ¡Estoy aprendiendo a usar Contextos!
 on: push
 jobs:
   check-main:
